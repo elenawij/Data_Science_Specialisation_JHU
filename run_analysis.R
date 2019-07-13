@@ -1,9 +1,16 @@
-#READ DATASETS
-setwd('/Users/elena.zadnepranets/Dropbox/TDS/COURSES/Data_Science_Specialisation_JHU/Getting and Cleaning Data/UCI HAR Dataset')
+#_____________________________________________________________________________________________________________________________
+#1.READ DATASETS
+setwd('/Users/ele/Dropbox/TDS/COURSES/Data_Science_Specialisation_JHU/Getting and Cleaning Data/UCI HAR Dataset')
+
+
+#features
+features_names<-read.table('features.txt', sep=' ')
+head(features_names)
 
 #train
 X_train<-read.table('./train/X_train.txt', header=F, sep="")
-colnames(X_train)<-c(paste0('feature_time_frequency_', seq(1:ncol(X_train))))
+colnames(X_train)<-features_names[,2]
+head(X_train)
 dim(X_train)
 
 subject_train<-read.table('./train/subject_train.txt', header=F, sep="")
@@ -52,7 +59,7 @@ dim(body_acc_x_train)
 
 #test
 X_test<-read.table('./test/X_test.txt', header=F, sep="")
-colnames(X_test)<-c(paste0('feature_time_frequency_', seq(1:ncol(X_test))))
+colnames(X_test)<-features_names[,2]
 dim(X_test)
 
 subject_test<-read.table('./test/subject_test.txt', header=F, sep="")
@@ -101,7 +108,7 @@ dim(body_acc_x_test)
 
 
 #_____________________________________________________________________________________________________________________________
-#1.Merges the training and the test sets to create one data set
+#2.Merges the training and the test sets to create one data set
 
 object_names<-ls()
 
@@ -116,57 +123,91 @@ str(te_full)
 
 names(tr_full)<-gsub('_train', '', names(tr_full))
 names(te_full)<-gsub('_test', '', names(tr_full))
-names(tr_full)
-names(te_full)
+
 dataset_full<-rbind(tr_full, te_full)
+tail(names(dataset_full))
+head(names(dataset_full))
+
+#clean the naming after rbind
+names(dataset_full)<-gsub('^[a-zA-Z_]+\\.','', colnames(dataset_full))
+tail(names(dataset_full))
+head(names(dataset_full))
+
 
 #_____________________________________________________________________________________________________________________________
-#2.Extracts only the measurements on the mean and standard deviation for each measurement.
+#3.Extracts only the measurements on the mean and standard deviation for each measurement.
+library(dplyr)
+library(matrixStats)
+dataset_full<-dataset_full %>% 
+  mutate(total_acceleration_x_mean=rowMeans(select(.,starts_with('total_acceleration_x_')), na.rm=T), 
+         total_acceleration_y_mean=rowMeans(select(.,starts_with('total_acceleration_y_')), na.rm=T),
+         total_acceleration_z_mean=rowMeans(select(.,starts_with('total_acceleration_z_')), na.rm=T),
+         body_acceleration_x_mean=rowMeans(select(.,starts_with('body_acceleration_x_')), na.rm=T), 
+         body_acceleration_y_mean=rowMeans(select(.,starts_with('body_acceleration_y_')), na.rm=T),
+         body_acceleration_z_mean=rowMeans(select(.,starts_with('body_acceleration_z_')), na.rm=T),
+         velocity_gyroscope_x_mean=rowMeans(select(.,starts_with('velocity_gyroscope_x_')), na.rm=T), 
+         velocity_gyroscope_y_mean=rowMeans(select(.,starts_with('velocity_gyroscope_y_')), na.rm=T),
+         velocity_gyroscope_z_mean=rowMeans(select(.,starts_with('velocity_gyroscope_z_')), na.rm=T),
+         total_acceleration_x_std=rowSds(as.matrix(select(.,starts_with('total_acceleration_x_'))), na.rm=T), 
+         total_acceleration_y_std=rowSds(as.matrix(select(.,starts_with('total_acceleration_y_'))), na.rm=T),
+         total_acceleration_z_std=rowSds(as.matrix(select(.,starts_with('total_acceleration_z_'))), na.rm=T),
+         body_acceleration_x_std=rowSds(as.matrix(select(.,starts_with('body_acceleration_x_'))), na.rm=T),
+         body_acceleration_y_std=rowSds(as.matrix(select(.,starts_with('body_acceleration_y_'))), na.rm=T),
+         body_acceleration_z_std=rowSds(as.matrix(select(.,starts_with('body_acceleration_z_'))), na.rm=T),
+         velocity_gyroscope_x_std=rowSds(as.matrix(select(.,starts_with('velocity_gyroscope_x_'))), na.rm=T),
+         velocity_gyroscope_y_std=rowSds(as.matrix(select(.,starts_with('velocity_gyroscope_y_'))), na.rm=T),
+         velocity_gyroscope_z_std=rowSds(as.matrix(select(.,starts_with('velocity_gyroscope_z_'))), na.rm=T))
 
-mean_stdev<-summarise_if(dataset_full, is.numeric, list(avg=~mean(.),stdev=~sd(.)))
+rowMeans(select(.,starts_with('total_acceleration_x_')), na.rm=T)
 
-# mean<-sapply(dataset_full, mean)
-# st_dev<-sapply(dataset_full, sd)
+
+names_df<-names(dataset_full)
+columns_to_leave<-c('subject_id', 'activity_label', names_df[grepl('mean|std', tolower(names_df))])
+dataset_full_mean_sd<-dataset_full %>% 
+  select(columns_to_leave)
+
+str(dataset_full_mean_sd)
 
 #_____________________________________________________________________________________________________________________________
-#3. Uses descriptive activity names to name the activities in the data set
-library(plyr)
+#4. Uses descriptive activity names to name the activities in the data set
 activities<-c("WALKING", "WALKING_UPSTAIRS", "WALKING_DOWNSTAIRS", "SITTING", "STANDING", "LAYING")
-dataset_full$activity_label<-as.factor(dataset_full$activity_label)
-dataset_full$activity_label<-mapvalues(temp, levels(dataset_full$activity_label), activities)
-head(dataset_full$activity_label,100)
+dataset_full_mean_sd$activity_label<-as.factor(dataset_full_mean_sd$activity_label)
+dataset_full_mean_sd$activity_label<-mapvalues(dataset_full_mean_sd$activity_label,levels(dataset_full_mean_sd$activity_label), activities)
+head(dataset_full_mean_sd$activity_label,100)
 
 
 #_____________________________________________________________________________________________________________________________
-# 4.Appropriately labels the data set with descriptive variable names.
+# 5.Appropriately label the data set with descriptive variable names.
 
-#descriptive names were created at the reading files step, 
-#now just need to clean names after merging the train and test datasets
+#descriptive names were created at the reading files step, just need to clean a bit
 
-names(dataset_full)<-gsub('.+\\.','', colnames(dataset_full))
+colnames(dataset_full_mean_sd)<-gsub('...', '_', colnames(dataset_full_mean_sd), fixed=T)
+colnames(dataset_full_mean_sd)<-gsub('..', '_', colnames(dataset_full_mean_sd), fixed=T)
 
 #test names
-sample(names(dataset_full), 100) 
-# [1] "velocity_gyroscope_z_10"    "total_acceleration_x_1"     "body_acceleration_x_36"    
-# [4] "velocity_gyroscope_z_100"   "total_acceleration_y_60"    "feature_time_frequency_330"
-# [7] "total_acceleration_z_29"    "feature_time_frequency_37"  "velocity_gyroscope_y_56"   
-# [10] "body_acceleration_y_40"     "body_acceleration_z_61"     "feature_time_frequency_485"
-# [13] "total_acceleration_z_115"   "body_acceleration_z_57"     "feature_time_frequency_382"
-# [16] "total_acceleration_z_39"    "velocity_gyroscope_x_30"    "body_acceleration_y_112"   
-# [19] "body_acceleration_z_35"     "body_acceleration_z_114"    "feature_time_frequency_326"
-# [22] "total_acceleration_z_124"   "feature_time_frequency_554" "total_acceleration_x_116" 
+sample(names(dataset_full_mean_sd), 100) 
+# [1] "tBodyAcc.mean_Z"                  "velocity_gyroscope_z_mean"        "tBodyGyro.std_Y"                  "tGravityAcc.std_Y"                "tBodyAcc.mean_Y"                 
+# [6] "tGravityAcc.std_X"                "angle.X.gravityMean."             "tBodyAccJerk.mean_Z"              "fBodyAcc.meanFreq_Z"              "tBodyAcc.mean_X"                 
+# [11] "fBodyBodyAccJerkMag.std.."        "fBodyAccJerk.meanFreq_Z"          "fBodyGyro.mean_X"                 "velocity_gyroscope_y_mean"        "tBodyAccJerk.std_Z"              
+# [16] "tGravityAccMag.std.."             "tBodyGyroJerk.std_X"              "fBodyBodyGyroMag.meanFreq.."      "tBodyAccJerk.mean_Y"              "tBodyAccJerk.mean_X"             
+# [21] "total_acceleration_y_mean"        "fBodyBodyAccJerkMag.mean.."       "total_acceleration_x_mean"        "fBodyAccJerk.mean_X"              "fBodyAccJerk.std_Z"              
+# [26] "fBodyAcc.mean_X"                  "fBodyAcc.std_X"                   "velocity_gyroscope_y_std"         "tBodyGyroJerk.std_Z"              "fBodyGyro.std_Y"                 
+# [31] "fBodyGyro.std_X"                  "fBodyGyro.meanFreq_Y"             "tBodyAccJerk.std_X"               "fBodyBodyGyroJerkMag.mean.."      "total_acceleration_y_std"  
 
 
 #_____________________________________________________________________________________________________________________________
 #5.From the data set in step 4, creates a second, independent tidy data set 
 #with the average of each variable for each activity and each subject.
-library(tidyr)
 
-names(dataset_full)[sapply(dataset_full, class)!='numeric']
-dataset_full2<-dataset_full %>% 
+names(dataset_full_mean_sd)[sapply(dataset_full_mean_sd, class)!='numeric']
+dataset_full_final<-dataset_full_mean_sd %>% 
   group_by(subject_id, activity_label) %>%
   summarise_all(list(avg=~mean(.)))
 
-str(dataset_full2)
+str(dataset_full_final)
+colnames(dataset_full_final)
+
+write.table(dataset_full_final, 'dataset_full_final.txt', row.name=FALSE)
+write.table(colnames(dataset_full_final), 'CODEBOOK.txt', row.name=FALSE, col.names = F)
 
 

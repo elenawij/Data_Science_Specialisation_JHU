@@ -1,0 +1,106 @@
+subject_id: id of 30 volunteers within an age bracket of 19-48 years
+activity_label: labels of activities each of the 30 volunteers have performed wearing a smartphone (Samsung Galaxy S II) on the waist.
+tBodyAcc.mean_X_avg: average for each activity and each subject of body acceleration along X axis mean
+tBodyAcc.mean_Y_avg: average for each activity and each subject of body acceleration along Y axis mean
+tBodyAcc.mean_Z_avg: average for each activity and each subject of body acceleration along Z axis mean
+tBodyAcc.std_X_avg: average for each activity and each subject of body acceleration along X axis standard deviation
+tBodyAcc.std_Y_avg: average for each activity and each subject of body acceleration along Y axis standard deviation
+tBodyAcc.std_Z_avg: average for each activity and each subject of body acceleration along Z axis standard deviation
+tGravityAcc.mean_X_avg: average for each activity and each subject of gravity acceleration along X axis mean
+tGravityAcc.mean_Y_avg: average for each activity and each subject of gravity acceleration along Y axis mean
+tGravityAcc.mean_Z_avg: average for each activity and each subject of gravity acceleration along Z axis mean
+tGravityAcc.std_X_avg: average for each activity and each subject of gravity acceleration along X axis standard deviation
+tGravityAcc.std_Y_avg: average for each activity and each subject of gravity acceleration along Y axis standard deviation
+tGravityAcc.std_Z_avg: average for each activity and each subject of gravity acceleration along Z axis standard deviation
+tBodyAccJerk.mean_X_avg: average for each activity and each subject of body linear acceleration (derived in time to obtain Jerk signals) along X axis mean
+tBodyAccJerk.mean_Y_avg: average for each activity and each subject of body linear acceleration (derived in time to obtain Jerk signals) along Y axis mean
+tBodyAccJerk.mean_Z_avg: average for each activity and each subject of body linear acceleration (derived in time to obtain Jerk signals) along Z axis mean
+tBodyAccJerk.std_X_avg: average for each activity and each subject of body linear acceleration (derived in time to obtain Jerk signals) along X axis standard deviation
+tBodyAccJerk.std_Y_avg: average for each activity and each subject of body linear acceleration (derived in time to obtain Jerk signals) along Y axis standard deviation
+tBodyAccJerk.std_Z_avg: average for each activity and each subject of body linear acceleration (derived in time to obtain Jerk signals) along Z axis standard deviation
+tBodyGyro.mean_X_avg: average for each activity and each subject of angular velocity along X axis mean
+tBodyGyro.mean_Y_avg: average for each activity and each subject of angular velocity along Y axis mean
+tBodyGyro.mean_Z_avg: average for each activity and each subject of angular velocity along Z axis mean
+tBodyGyro.std_X_avg: average for each activity and each subject of angular velocity along X axis standard deviation
+tBodyGyro.std_Y_avg: average for each activity and each subject of angular velocity along Y axis standard deviation
+tBodyGyro.std_Z_avg: average for each activity and each subject of angular velocity along Z axis standard deviation
+tBodyGyroJerk.mean_X_avg: average for each activity and each subject of angular velocity (derived in time to obtain Jerk signals) along X axis mean
+tBodyGyroJerk.mean_Y_avg: average for each activity and each subject of angular velocity (derived in time to obtain Jerk signals) along Y axis mean
+tBodyGyroJerk.mean_Z_avg: average for each activity and each subject of angular velocity (derived in time to obtain Jerk signals) along Z axis mean
+tBodyGyroJerk.std_X_avg: average for each activity and each subject of angular velocity (derived in time to obtain Jerk signals) along X axis standard deviation
+tBodyGyroJerk.std_Y_avg: average for each activity and each subject of angular velocity (derived in time to obtain Jerk signals) along Y axis standard deviation
+tBodyGyroJerk.std_Z_avg: average for each activity and each subject of angular velocity (derived in time to obtain Jerk signals) along Z axis standard deviation
+tBodyAccMag.mean__avg: average for each activity and each subject of body acceleration magnitude mean
+tBodyAccMag.std__avg: average for each activity and each subject of body acceleration magnitude standard deviation
+tGravityAccMag.mean__avg: average for each activity and each subject of gravity acceleration magnitude mean
+tGravityAccMag.std__avg: average for each activity and each subject of gravity acceleration magnitude standard deviation
+tBodyAccJerkMag.mean__avg: average for each activity and each subject of body acceleration  (derived in time to obtain Jerk signals) magnitude mean
+tBodyAccJerkMag.std__avg: average for each activity and each subject of body acceleration  (derived in time to obtain Jerk signals) magnitude standard deviation
+tBodyGyroMag.mean__avg: average for each activity and each subject of angular velocity magnitude mean
+tBodyGyroMag.std__avg: average for each activity and each subject of angular velocity magnitude standard deviation
+tBodyGyroJerkMag.mean__avg: average for each activity and each subject of angular velocity magnitude mean
+tBodyGyroJerkMag.std__avg: average for each activity and each subject of angular velocity magnitude standard deviation
+fBodyAcc.mean_X_avg: average for each activity and each subject of body acceleration (after Fast Fourier Transform application) along X axis mean
+fBodyAcc.mean_Y_avg: average for each activity and each subject of body acceleration (after Fast Fourier Transform application) along Y axis mean
+fBodyAcc.mean_Z_avg: average for each activity and each subject of body acceleration (after Fast Fourier Transform application) along Z axis mean
+fBodyAcc.std_X_avg: average for each activity and each subject of body acceleration (after Fast Fourier Transform application) along X axis standard deviation
+fBodyAcc.std_Y_avg: average for each activity and each subject of body acceleration (after Fast Fourier Transform application) along Y axis standard deviation
+fBodyAcc.std_Z_avg: average for each activity and each subject of body acceleration (after Fast Fourier Transform application) along Z axis standard deviation
+fBodyAcc.meanFreq_X_avg: average for each activity and each subject of gravity acceleration (after Fast Fourier Transform application) along X axis mean
+fBodyAcc.meanFreq_Y_avg: average for each activity and each subject of gravity acceleration (after Fast Fourier Transform application) along Y axis mean
+fBodyAcc.meanFreq_Z_avg: average for each activity and each subject of gravity acceleration (after Fast Fourier Transform application) along Z axis mean
+fBodyAccJerk.mean_X_avg: average for each activity and each subject of gravity acceleration (after Fast Fourier Transform application) along X axis standard deviation
+fBodyAccJerk.mean_Y_avg: average for each activity and each subject of gravity acceleration (after Fast Fourier Transform application) along Y axis standard deviation
+fBodyAccJerk.mean_Z_avg: average for each activity and each subject of gravity acceleration (after Fast Fourier Transform application) along Z axis standard deviation
+fBodyAccJerk.std_X_avg: average for each activity and each subject of body linear acceleration (after Fast Fourier Transform application) (derived in time to obtain Jerk signals) along X axis mean
+fBodyAccJerk.std_Y_avg: average for each activity and each subject of body linear acceleration (after Fast Fourier Transform application) (derived in time to obtain Jerk signals) along Y axis mean
+fBodyAccJerk.std_Z_avg: average for each activity and each subject of body linear acceleration (after Fast Fourier Transform application) (derived in time to obtain Jerk signals) along Z axis mean
+fBodyAccJerk.meanFreq_X_avg: average for each activity and each subject of body linear acceleration (after Fast Fourier Transform application) (derived in time to obtain Jerk signals) along X axis mean frequency
+fBodyAccJerk.meanFreq_Y_avg: average for each activity and each subject of body linear acceleration (after Fast Fourier Transform application) (derived in time to obtain Jerk signals) along Y axis mean frequency
+fBodyAccJerk.meanFreq_Z_avg: average for each activity and each subject of body linear acceleration (after Fast Fourier Transform application) (derived in time to obtain Jerk signals) along Z axis mean frequency
+fBodyGyro.mean_X_avg: average for each activity and each subject of angular velocity (after Fast Fourier Transform application) along X axis mean
+fBodyGyro.mean_Y_avg: average for each activity and each subject of angular velocity (after Fast Fourier Transform application) along Y axis mean
+fBodyGyro.mean_Z_avg: average for each activity and each subject of angular velocity (after Fast Fourier Transform application) along Z axis mean
+fBodyGyro.std_X_avg: average for each activity and each subject of angular velocity (after Fast Fourier Transform application) along X axis standard deviation
+fBodyGyro.std_Y_avg: average for each activity and each subject of angular velocity (after Fast Fourier Transform application) along Y axis standard deviation
+fBodyGyro.std_Z_avg: average for each activity and each subject of angular velocity (after Fast Fourier Transform application) along Z axis standard deviation
+fBodyGyro.meanFreq_X_avg: average for each activity and each subject of angular velocity (after Fast Fourier Transform application) (derived in time to obtain Jerk signals) along X axis mean
+fBodyGyro.meanFreq_Y_avg: average for each activity and each subject of angular velocity (after Fast Fourier Transform application) (derived in time to obtain Jerk signals) along Y axis mean
+fBodyGyro.meanFreq_Z_avg: average for each activity and each subject of angular velocity (after Fast Fourier Transform application) (derived in time to obtain Jerk signals) along Z axis mean
+fBodyAccMag.mean__avg: average for each activity and each subject of body acceleration (after Fast Fourier Transform application) magnitude mean
+fBodyAccMag.std__avg: average for each activity and each subject of body acceleration (after Fast Fourier Transform application) magnitude standard deviation
+fBodyAccMag.meanFreq__avg: average for each activity and each subject of gravity acceleration (after Fast Fourier Transform application) magnitude mean
+fBodyBodyAccJerkMag.mean__avg: average for each activity and each subject of gravity acceleration (after Fast Fourier Transform application) magnitude standard deviation
+fBodyBodyAccJerkMag.std__avg: average for each activity and each subject of body acceleration (after Fast Fourier Transform application)  (derived in time to obtain Jerk signals) magnitude mean
+fBodyBodyAccJerkMag.meanFreq__avg: average for each activity and each subject of body acceleration (after Fast Fourier Transform application)  (derived in time to obtain Jerk signals) magnitude standard deviation
+fBodyBodyGyroMag.mean__avg: average for each activity and each subject of angular velocity (after Fast Fourier Transform application) magnitude mean
+fBodyBodyGyroMag.std__avg: average for each activity and each subject of angular velocity (after Fast Fourier Transform application) magnitude standard deviation
+fBodyBodyGyroMag.meanFreq__avg: average for each activity and each subject of angular velocity (after Fast Fourier Transform application) magnitude mean frequency
+fBodyBodyGyroJerkMag.mean__avg: average for each activity and each subject of angular velocity (after Fast Fourier Transform application) magnitude mean 
+fBodyBodyGyroJerkMag.std__avg: average for each activity and each subject of angular velocity (after Fast Fourier Transform application) magnitude standard deviation
+fBodyBodyGyroJerkMag.meanFreq__avg: average for each activity and each subject of angular velocity (after Fast Fourier Transform application) magnitude mean frequency
+angle.tBodyAccMean.gravity._avg: average for each activity and each subject of angle between body acceleration mean and gravity mean 
+angle.tBodyAccJerkMean_gravityMean._avg: average for each activity and each subject of angle between body acceleration  (derived in time to obtain Jerk signals) mean and gravity mean 
+angle.tBodyGyroMean.gravityMean._avg: average for each activity and each subject of angle between angular velocity mean and gravity mean 
+angle.tBodyGyroJerkMean.gravityMean._avg: average for each activity and each subject of angle between angular velocity  (derived in time to obtain Jerk signals) mean and gravity mean 
+angle.X.gravityMean._avg: average for each activity and each subject of angle between X axis and gravity mean 
+angle.Y.gravityMean._avg: average for each activity and each subject of angle between Y axis and gravity mean 
+angle.Z.gravityMean._avg: average for each activity and each subject of angle between Z axis and gravity mean 
+total_acceleration_x_mean_avg: average for each activity and each subject of total acceleration along X axis mean
+total_acceleration_y_mean_avg: average for each activity and each subject of total acceleration along Y axis mean
+total_acceleration_z_mean_avg: average for each activity and each subject of total acceleration along Z axis mean
+body_acceleration_x_mean_avg: average for each activity and each subject of body acceleration along X axis mean
+body_acceleration_y_mean_avg: average for each activity and each subject of body acceleration along Y axis mean
+body_acceleration_z_mean_avg: average for each activity and each subject of body acceleration along Z axis mean
+velocity_gyroscope_x_mean_avg: average for each activity and each subject of angular velocity along X axis mean
+velocity_gyroscope_y_mean_avg: average for each activity and each subject of angular velocity along Y axis mean
+velocity_gyroscope_z_mean_avg: average for each activity and each subject of angular velocity along Z axis mean
+total_acceleration_x_std_avg: average for each activity and each subject of total acceleration along X axis standard deviation
+total_acceleration_y_std_avg: average for each activity and each subject of total acceleration along Y axis standard deviation
+total_acceleration_z_std_avg: average for each activity and each subject of total acceleration along Z axis standard deviation
+body_acceleration_x_std_avg: average for each activity and each subject of body acceleration along X axis standard deviation
+body_acceleration_y_std_avg: average for each activity and each subject of body acceleration along Y axis standard deviation
+body_acceleration_z_std_avg: average for each activity and each subject of body acceleration along Z axis standard deviation
+velocity_gyroscope_x_std_avg: average for each activity and each subject of angular velocity along X axis standard deviation
+velocity_gyroscope_y_std_avg: average for each activity and each subject of angular velocity along Y axis standard deviation
+velocity_gyroscope_z_std_avg: average for each activity and each subject of angular velocity along Z axis standard deviation
