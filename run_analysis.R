@@ -198,11 +198,16 @@ sample(names(dataset_full_mean_sd), 100)
 #_____________________________________________________________________________________________________________________________
 #5.From the data set in step 4, creates a second, independent tidy data set 
 #with the average of each variable for each activity and each subject.
+library(tidyr)
+#names(dataset_full_mean_sd)[sapply(dataset_full_mean_sd, class)!='numeric']
 
-names(dataset_full_mean_sd)[sapply(dataset_full_mean_sd, class)!='numeric']
+head(names(dataset_full_mean_sd))
+tail(names(dataset_full_mean_sd))
 dataset_full_final<-dataset_full_mean_sd %>% 
   group_by(subject_id, activity_label) %>%
-  summarise_all(list(avg=~mean(.)))
+  summarise_all(list(avg=~mean(.))) %>%
+  gather(metric_name, average_value,  -subject_id, -activity_label)
+  
 
 str(dataset_full_final)
 colnames(dataset_full_final)
