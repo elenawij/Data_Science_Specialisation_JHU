@@ -4,7 +4,7 @@
 
 3.Extracts only the measurements on the mean and standard deviation for each measurement: using dplyr package calculate mean and std for feature vectors, and then select only columns that contain 'mean' or 'std' words
 
-4. Uses descriptive activity names to name the activities in the data set: matched coded activity labels to the activity names
+4.Uses descriptive activity names to name the activities in the data set: matched coded activity labels to the activity names
 
 5.Appropriately label the data set with descriptive variable names: the descriptive names were given at the step #1, just needed to clean up a bit
 
