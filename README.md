@@ -1,3 +1,15 @@
+# Peer-graded Assignment: Getting and Cleaning Data Course Project
+
+## Description of the project
+*One of the most exciting areas in all of data science right now is wearable computing - see for example this article . Companies like Fitbit, Nike, and Jawbone Up are racing to develop the most advanced algorithms to attract new users. The data linked to from the course website represent data collected from the accelerometers from the Samsung Galaxy S smartphone. A full description is available at the site where the data was obtained:
+*http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+
+*Here are the data for the project:
+*https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip 
+
+
+## Steps of the analysis (full details can be seen in the run_analysis.R):
+
 1.READ DATASETS: read all the files from the given UCI HAR Dataset folder. assign sensible column names
 
 2.Merges the training and the test sets to create one data set : combine column-wise training data sets, repeat the same operation fro test data sets, only after that merge two full data sets row-wise. Update the naming
